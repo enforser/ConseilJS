@@ -242,7 +242,7 @@ export namespace TezosMessageUtils {
      * @returns {string} Key.
      */
     export function readPublicKey(hex: string): string {
-        if (hex.length !== 66 && hex.length !== 68) { throw new Error(`Incorrect hex length, ${hex.length} to parse a key`); }
+        if (hex.length !== 66 || hex.length !== 68) { throw new Error(`Incorrect hex length, ${hex.length} to parse a key`); }
 
         let hint = hex.substring(0, 2);
         if (hint === "00") { // ed25519
